@@ -35,8 +35,8 @@ def main():
 		multiply = "умножить на"
 		divide = "поделить на"
 
-	a = random.randint(1,50)
-	b = random.randint(1,50)
+	a = random.randint(20,150)
+	b = random.randint(20,150)
 	digits = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 	action_plus = a+b
 	action_minus = a-b
