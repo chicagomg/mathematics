@@ -4,7 +4,7 @@ import os
 from num2words import num2words
 
 n = 0
-points = 25     # количество попыток
+points = 50     # количество попыток
 language = "ru" # язык приложения
 RED='\033[1;31m'
 GRN='\033[1;32m'
@@ -35,22 +35,15 @@ def main():
 		multiply = "умножить на"
 		divide = "поделить на"
 
-	a = random.randint(1,20)
-	b = random.randint(1,10)
+	a = random.randint(1,50)
+	b = random.randint(1,50)
 	digits = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 	action_plus = a+b
 	action_minus = a-b
 	action_multiply = a*b
 	action_divide = a/b
-	action = [action_plus, action_minus, action_multiply]
-	if action_divide in digits:
-		c = action_divide
-	elif action_multiply in digits:
-		c = action_multiply
-	elif action_minus > 0:
-		c = action_minus
-	else:
-		c = action_plus #random.choice(action)
+	action = [action_plus, action_minus]
+	c = action_plus #random.choice(action)
 	if c == action_plus:
 		print(YEL, num2words(a, lang=language), plus, num2words(b, lang=language), equal, NC)
 		print(a, "+", b, "=")
