@@ -4,8 +4,8 @@ import os
 from num2words import num2words
 
 n = 0
-points = 25  # количество попыток
-language = "ru"  # язык приложения
+points = 50  # количество попыток
+language = "pt"  # язык приложения
 RED = '\033[1;31m'
 GRN = '\033[1;32m'
 YEL = '\033[1;33m'
@@ -58,27 +58,33 @@ def main():
     elif c == action_divide:
         print(YEL, num2words(a, lang=language), divide, num2words(b, lang=language), equal, NC)
         print(a, "/", b, "=")
-    value = int(input())
+    value = input()
 
-    if n == points - 1:
-        os.system('cls||clear')
-        print(done)
-        exit(1)
-    else:
-        if value == c:
-            n += 1
+
+    try:
+        if n == points - 1:
             os.system('cls||clear')
-            itog = num2words(n, lang=language)
-            print(GRN, itog, NC)
-            print("")
-            return (n)
+            print(done," ", points)
+            exit(1)
         else:
-            n -= 2
-            os.system('cls||clear')
-            itog = num2words(n, lang=language)
-            print(RED, itog, NC)
-            print("")
-            return n
+            if int(value) == c:
+                n += 1
+                os.system('cls||clear')
+                itog = num2words(n, lang=language)
+                print(GRN, itog, NC)
+                print("")
+                return (n)
+            else:
+                n -= 2
+                os.system('cls||clear')
+                itog = num2words(n, lang=language)
+                print(RED, itog, NC)
+                print("")
+                return n
+    except ValueError as ve:
+        print('You are supposed to enter number.')
+        n -= 1
+
 
 
 os.system('cls||clear')
